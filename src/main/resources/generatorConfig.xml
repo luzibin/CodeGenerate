@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="config-sqlserver.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="${mapper.plugin}">
+            <property name="mappers" value="${mapper.Mapper}"/>
+        </plugin>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}" password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!--  Java实体类  -->
+        <javaModelGenerator targetPackage="${targetModelPackage}" targetProject="${targetPojoJavaProject}"/>
+
+        <!--  XML生成路径  -->
+       <!-- <sqlMapGenerator targetPackage="${targetXMLPackage}"  targetProject="${targetResourcesProject}"/>-->
+
+        <!--  Java Mapper接口  -->
+       <!-- <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}" type="XMLMAPPER" />-->
+
+        <!-- 数据库表 -->
+        <table tableName="v_BillList_CementSlump_Test" domainObjectName="VBillListCementSlumpTest" />
+        <table tableName="v_BillList_Cement01" domainObjectName="VBillListCement01" />
+        <table tableName="v_BillList_MaterialThin" domainObjectName="VBillListMaterialThin" />
+        <table tableName="v_BillList_MaterialThick" domainObjectName="VBillListMaterialThick" />
+        <table tableName="v_BillList_Cement11_11S" domainObjectName="VBillListCement1111S" >
+
+        </table>
+    </context>
+</generatorConfiguration>
